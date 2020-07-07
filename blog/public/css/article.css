@@ -1,0 +1,111 @@
+/* 页面版心宽度 */
+
+.w {
+    width: 1000px;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+}
+
+.header {
+    margin: 0 auto;
+}
+
+.header img {
+    height: 50px;
+}
+
+.header .nav {
+    float: right;
+}
+
+.header .nav a {
+    display: inline-block;
+    width: 70px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+main {
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.main {
+    width: 920px;
+    margin: 0 auto;
+}
+
+.main .detail {
+    padding-top: 30px;
+}
+
+.detail h2 {
+    margin-bottom: 8px;
+}
+
+.detail span,
+.detail em {
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.auther {
+    color: orange;
+}
+
+.detail p {
+    line-height: 26px;
+    font-size: 14px;
+    margin-top: 24px;
+    text-indent: 2em;
+}
+
+.detail img {
+    margin-top: 24px;
+}
+
+.comment {
+    margin-top: 50px;
+}
+
+.comment span {
+    display: block;
+    font-weight: 700;
+}
+
+.comment .cmt {
+    margin-top: 10px;
+    width: 920px;
+    height: 120px;
+    font-size: 16px;
+}
+
+.comment .submit {
+    margin-top: 10px;
+    width: 80px;
+    height: 40px;
+}
+
+.comment-list {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.comment-list ul li {
+    margin-bottom: 20px;
+}
+
+.comment-list ul li span {
+    font-size: 13px;
+}
+
+.comment-list ul li p {
+    margin-top: 8px;
+    font-size: 16px;
+}

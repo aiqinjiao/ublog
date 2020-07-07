@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <h4>博客管理员登录</h4>
+    <form action="/admin/login" method="POST" class="login">
+        <fieldset>
+            <label for="">邮件：<input type="email" name="email"></label>
+            <label for="">密码：<input type="password" name="password"></label>
+            <label for=""><input type="submit" value="登录" class="btn"></label>
+        </fieldset>
+    </form>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script>
+        // 为表单添加提交事件
+        $('.login').on('submit', function() {
+            // 获取表单中用户输入的内容
+            var result = serializeArrayToJson($(this));
+            // 如果用户没有输入邮件地址  trim() 处掉字符串两边的空格
+            if (result.email.trim().length == 0) {
+                alert('请输入邮箱地址');
+                // 阻止程序向下执行
+                return false;
+            }
+            // 如果用户没有输入密码
+            if (result.password.trim().length == 0) {
+                alert('请输入密码');
+                // 阻止程序向下执行
+                return false;
+            }
+        });
+    </script>
+</body>
+
+</html>

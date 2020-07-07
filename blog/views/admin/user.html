@@ -1,0 +1,96 @@
+{{extend './common/layout.html'}} {{block 'titel'}}
+<title>用户管理</title>
+{{/block}}
+{{block 'main'}}
+{{include './common/header.html'}}
+{{include './common/aside.html'}}
+<main>
+    <div class="main">
+        <h3>用户</h3>
+        <button class="user-add"><a href="/admin/user-edit">新增用户</a></button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>角色</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each users}}
+                <tr>
+                    <!-- @ 将数据原文输出 -->
+                    <td>{{@$value._id}}</td>
+                    <td>{{$value.username}}</td>
+                    <td>{{$value.email}}</td>
+                    <td>{{$value.role == 'admin' ? '管理员' : '普通用户'}}</td>
+                    <td>{{$value.state == 0 ? '启用' : '禁用'}}</td>
+                    <td>
+                        <a href="/admin/user-edit?id={{@$value._id}}">编辑</a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary delete" data-toggle="modal" data-target="#myModal"
+                            data-id="{{@$value._id}}">
+                            删除
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <form action="/admin/delete" method="GET">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">删除用户</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>您确认要删除这个用户吗？</p>
+                                            <input type="hidden" name="id" id="deleteUserId">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消</button>
+                                            <button type="submit" class="btn btn-primary">确认</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <div class="turn">
+            <ul>
+                <li style="display: <%= page-1 < 1 ? 'none' : 'inline' %>">
+                    <a href="/admin/user?page=<%=page-1%>">&laquo;</a>
+                </li>
+                <% for (var i =1; i<=total; i++) { %>
+                <li>
+                    <a href="/admin/user?page={{i}}">{{i}}</a>
+                </li>
+                <% } %>
+                <li style="display: {{page-0+1 > total ? 'none' : 'inline'}}">
+                    <!-- 减法有隐式转化 字符串转换为数字 -->
+                    <a href="/admin/user?page=<%=page-0+1%>">&raquo;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+{{/block}}
+
+{{block 'script'}}
+<script>
+    // 点击删除按钮获取用户id 放入隐藏表单域
+    $('.delete').on('click', function () {
+        // 获取用户id
+        var id = $(this).attr('data-id');
+        $('#deleteUserId').val(id);
+    });
+</script>
+{{/block}}

@@ -1,0 +1,31 @@
+{{extend './common/layout.html'}}
+{{block 'main'}}
+{{include './common/header.html'}}
+{{include './common/aside.html'}}
+<main>
+    <div class="main">
+        <h3>{{@ user ? user._id : '新增用户' }}</h3>
+        <p class="msg">{{message}}</p>
+        <div class="new">
+            <form action="{{link}}" method="POST">
+                <label for="">用户名<br><input name="username" type="text" value="{{user && user.username}}"></label>
+                <label for="">邮箱<br><input name="email" type="email" value="{{user && user.email}}"></label>
+                <label for="">密码<br><input name="password" type="password"></label>
+                <label for="">角色<br>
+                    <select name="role" id="">
+                        <option value="normal" {{user && user.role == 'normal' ? 'selected' : ''}}>普通用户</option>
+                        <option value="admin" {{user && user.role == 'admin' ? 'selected' : ''}}>管理员</option>
+                    </select>
+                </label>
+                <label for="">状态<br>
+                    <select name="state" id="">
+                        <option value="0" {{user && user.state == 0 ? 'selected' : ''}}>启用</option>
+                        <option value="1" {{user && user.state == 1 ? 'selected' : ''}}>禁用</option>
+                    </select>
+                </label>
+                <label for=""><input type="submit" class="sbt" value="{{button}}"></label>
+            </form>
+        </div>
+    </div>
+</main>
+{{/block}}

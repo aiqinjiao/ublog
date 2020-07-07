@@ -1,0 +1,28 @@
+h4 {
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 200px;
+    text-align: center;
+}
+
+.login {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    width: 240px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+input {
+    width: 188px;
+}
+
+.btn {
+    width: 240px;
+    margin-bottom: 20px;
+}

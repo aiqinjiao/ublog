@@ -1,0 +1,15 @@
+<!-- 头部 -->
+<header>
+    <div class="header clearfix">
+        <h1>博客-海贼·王路飞</h1>
+        <div class="user">
+            <span>{{userInfo && userInfo.username}}</span>
+            <ul>
+                <li><a href="/admin/user-edit?id={{@userInfo && userInfo._id}}">个人资料</a></li>
+                <li><a href="/admin/logout">
+                        退出登录
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+</header>

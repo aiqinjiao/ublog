@@ -1,0 +1,95 @@
+{{extend './common/layout.html'}}
+{{block 'main'}}
+{{include './common/header.html'}}
+{{include './common/aside.html'}}
+<main>
+    <div class="main">
+        <h3>文章</h3>
+        <button class="article-add"><a href="/admin/article-edit">发布文章</a></button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>标题</th>
+                    <th>发布时间</th>
+                    <th>作者</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each articles.records}}
+                <tr>
+                    <td>{{@$value._id}}</td>
+                    <td>{{$value.title}}</td>
+                    <td>{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</td>
+                    <td>{{@$value.author.username}}</td>
+                    <td>
+                        <a href="/admin/article-edit?id={{@$value._id}}">编辑</a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary delete" data-toggle="modal" data-target="#myModal"
+                            data-id="{{@$value._id}}">
+                            删除
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <form action="/admin/article-delete" method="GET">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">删除文章</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>您确认要删除这个文章吗？</p>
+                                            <input type="hidden" name="id" id="deleteAtricleId">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消</button>
+                                            <button type="submit" class="btn btn-primary">确认</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <div class="turn">
+            <ul>
+                {{if articles.page > 1}}
+                <li>
+                    <a href="/admin/article?page={{articles.page - 1}}">&laquo;</a>
+                </li>
+                {{/if}}
+                {{each articles.display}}
+                <li>
+                    <a href="/admin/article?page={{$value}}">{{$value}}</a>
+                </li>
+                {{/each}}
+                {{if articles.page < articles.pages}}
+                <li>
+                    <a href="/admin/article?page={{articles.page - 0 + 1}}">&raquo;</a>
+                </li>
+                {{/if}}
+
+            </ul>
+        </div>
+    </div>
+</main>
+{{/block}}
+{{block 'script'}}
+<script>
+    // 点击删除按钮将文章ID写入隐藏域
+    $('.delete').on('click', function () {
+        // 获取文章id
+        var id = $(this).attr('data-id');
+        // 将文章id写入隐藏域
+        $('#deleteAtricleId').val(id);
+    });
+</script>
+{{/block}}

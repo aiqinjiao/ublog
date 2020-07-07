@@ -1,0 +1,10 @@
+{{extend './common/layout.html'}} {{block 'main'}}
+<p class="error">{{msg}}</p>
+{{/block}} {{block 'script'}}
+<script>
+    // 3s后跳转到登录页面
+    setTimeout(function() {
+        location.href = '/admin/login';
+    }, 3000);
+</script>
+{{/block}}

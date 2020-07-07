@@ -1,0 +1,52 @@
+{{extend './common/layout.html'}}
+{{block 'main'}}
+{{include './common/header.html'}}
+{{include './common/aside.html'}}
+<main>
+    <div class="main">
+        <h3>{{@article ? article._id : '新增文章'}}</h3>
+        <p class="msg">{{message}}</p>
+        <div class="new">
+            <!-- enctype 指定表单数据的编码类型
+                默认值：application/x-www-form-urlencoded
+                    name=zhangsan&age=20
+                multipart/form-data 将表单数据编码成二进制类型
+            -->
+            <form action="{{link}}" method="POST" enctype="multipart/form-data">
+                <label for="">标题<br><input type="text" name="title" value="{{article && article.title}}"></label>
+                <label for="">作者<br><input type="text" name="author" value="{{@article ? article.author :userInfo._id}}"
+                        readonly></label>
+                <label for="">发布日期<br><input type="date" name="publishDate"
+                        value="{{article && dateFormat(article.publishDate, 'yyyy-mm-dd')}}"></label>
+                <!-- multiple 允许用户一次选择多个文件 -->
+                <label for="">文章封面<br><input type="file" name="cover" id="file">
+                    <img src="" alt="" id="preview">
+                </label>
+                <label for="">内容<br><textarea name="content" class="form-control"
+                        id="editor">{{article && article.content}}</textarea></label>
+                <label for=""><input type="submit" class="sbt" value="{{button}}"></label>
+            </form>
+        </div>
+    </div>
+</main>
+{{/block}}
+{{block 'script'}}
+<script>
+    // 将上传的图片文件显示在页面
+    // 文件上传控件绑定change事件
+    $('#file').on('change', function () {
+        // 1.创建文件读取对象
+        var reader = new FileReader();
+        // 用户选择的文件列表
+        // console.log(this.files[0]);
+        // 2.读取文件
+        reader.readAsDataURL(this.files[0]);
+        // 3.监听onload事件
+        reader.onload = function () {
+            // console.log(reader.result);
+            // 将图片文件读取的结果显示在页面中
+            $('#preview').attr('src', reader.result);
+        }
+    });
+</script>
+{{/block}}

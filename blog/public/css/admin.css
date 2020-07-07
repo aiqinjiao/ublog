@@ -1,0 +1,211 @@
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+}
+
+.header h1 {
+    float: left;
+    width: 240px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #007acc;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+.header .user {
+    position: relative;
+    float: right;
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 50px;
+}
+
+.header .user span {
+    position: absolute;
+    right: 50px;
+}
+
+.header .user:hover {
+    background-color: #eee;
+}
+
+.header .user ul {
+    position: absolute;
+    top: 50px;
+    display: none;
+    width: 160px;
+    background-color: #fff;
+    line-height: 30px;
+    z-index: 999;
+}
+
+.header .user:hover ul {
+    display: block;
+}
+
+.header .user ul li {
+    margin-left: 20px;
+}
+
+.header .user ul li:hover a {
+    color: orange;
+}
+
+section .nav {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    float: left;
+    width: 240px;
+    background-color: #1e1e1e;
+}
+
+.nav ul {
+    position: absolute;
+    top: 40px;
+}
+
+.nav ul li {
+    width: 240px;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    border-left: 3px solid #1e1e1e;
+}
+
+.nav ul li a {
+    color: #aaa;
+}
+
+.nav ul li:hover {
+    border-left: 3px solid #007acc;
+}
+
+.nav ul li:hover a {
+    color: #fff;
+}
+
+.nav ul li.current {
+    border-left: 3px solid #007acc;
+}
+
+.nav ul li.current a {
+    color: #fff;
+}
+
+main {
+    position: absolute;
+    top: 50;
+    left: 240px;
+}
+
+.main {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.new {
+    width: 1080px;
+    height: 450px;
+    margin-top: 50px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-top: 0;
+    border-left: 0;
+}
+
+.main .msg {
+    position: absolute;
+    top: 30px;
+    color: red;
+}
+
+.main form {
+    margin: 20px;
+    padding-top: 20px;
+}
+
+.main .new label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.main .new label input,
+.main .new label select,
+.main .new label textarea {
+    width: 1000px;
+    height: 30px;
+    margin-top: 10px
+}
+
+.main .new label .sbt {
+    background-color: #007acc;
+}
+
+.main table {
+    width: 1000px;
+    margin-top: 90px;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.main table tbody tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+.main table,
+.main th,
+.main td {
+    border: 1px solid #ccc;
+}
+
+.main table a {
+    margin-left: 10px;
+}
+
+.main .turn {
+    margin-top: 20px;
+}
+
+.main .turn ul li {
+    float: left;
+}
+
+.main .turn ul li a {
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+    color: #007acc;
+}
+
+.main .user-add,.main .article-add {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 80px;
+    height: 30px;
+    background-color: #007acc;
+}
+
+.main .user-add a,.main .article-add a {
+    color: #fff;
+}
+
+.error {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 120px auto;
+    background-color: red;
+}
