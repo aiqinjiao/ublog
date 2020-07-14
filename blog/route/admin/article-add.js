@@ -20,7 +20,8 @@ module.exports = (req, res) => {
         await Article.create({
             title: fields.title,
             author: fields.author,
-            publishDate: fields.publishDate, //? fields.publishDate : Date.now(),
+            // 没有填写日期，默认为当前日期
+            publishDate: fields.publishDate ? fields.publishDate : Date.now(),
             cover: files.cover.path.split('public')[1],
             content: fields.content
         });

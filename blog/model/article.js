@@ -18,6 +18,7 @@ const articleSchame = new mongoose.Schema({
     },
     publishDate: {
         type: Date,
+        // 没有日期，展示位当前日期
         default: Date.now
     },
     cover: {

@@ -41,10 +41,12 @@ const userSchema = new mongoose.Schema({
 // 创建集合
 const User = mongoose.model('User', userSchema);
 
+// 创建用户
 async function createUser() {
     // 对密码进行加密
     const salt = await bcrypt.genSalt(10);
     const pwd = await bcrypt.hash('123456', salt);
+    // 新增数据
     const user = await User.create({
         username: 'pink',
         email: 'pink@ublog.com',

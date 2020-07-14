@@ -82,6 +82,10 @@ header {
 .main>div div p {
     font-size: 14px;
     margin-top: 12px;
+    width: 400px;
+    height: 20px;
+    color: #333;
+    line-height: 20px;
 }
 
 .turn {
@@ -96,5 +100,9 @@ header {
 .turn li a {
     display: inline-block;
     margin: 0 10px;
-    text-align: center;
+    text-align: center;     
+}
+
+.turn .active{
+    color: rgb(236, 178, 16);
 }
