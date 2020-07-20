@@ -22,6 +22,12 @@ header {
     float: right;
 }
 
+.header .nav p{
+    display: inline;
+    color: #fff;
+    margin-right: 5px;
+}
+
 .header .nav a {
     display: inline-block;
     width: 70px;

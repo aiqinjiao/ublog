@@ -8,9 +8,9 @@
     <div class="main w clearfix">
         {{each article.records}}
         <div>
-            <img src="{{$value.cover}}" alt="">
+            <img src="{{$value.cover}}" alt="没有相关图片">
             <div>
-                <h3><a href="/home/article">{{$value.title}}</a></h3>
+                <h3><a href="/home/article?id={{@$value._id}}">{{$value.title}}</a></h3>
                 <span
                     class="auther">{{$value.author.username}}</span><em>|</em><span>{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</span>
                 <p>{{$value.content.substr(0, 80)+'...'}}</p>

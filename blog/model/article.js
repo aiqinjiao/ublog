@@ -1,6 +1,5 @@
 // 引入mongoose模块
 const mongoose = require('mongoose');
-const { string, date } = require('joi');
 const { User } = require('./user');
 
 // 创建文章集合规则
@@ -13,13 +12,11 @@ const articleSchame = new mongoose.Schema({
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: User,
         required: [true, '请传递作者']
     },
     publishDate: {
-        type: Date,
-        // 没有日期，展示位当前日期
-        default: Date.now
+        type: Date
     },
     cover: {
         type: String,

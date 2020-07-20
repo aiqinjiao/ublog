@@ -18,7 +18,14 @@ require('./model/connect');
 // 处理post请求参数
 app.use(bodyParser.urlencoded({ extended: false }));
 // 配置session
-app.use(session({ secret: 'secret key' }));
+app.use(session({
+    secret: 'secret key',
+    saveUninitialized: false,
+    cookie: {
+        // cookie 过期时间1小时
+        maxAge: 1 * 60 * 60 * 1000
+    }
+}));
 
 // 告诉express框架模板所在的位置
 app.set('views', path.join(__dirname, 'views'));
