@@ -1,0 +1,90 @@
+.container
+{
+    width: 1226px;
+    height: 40px;
+    margin: 0 auto;
+}
+.header
+{
+    width: 100%;
+}
+.header .top
+{
+    width: 100%;
+    height: 40px;
+    background-color: #333333;
+}
+.header .top .topnav
+{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.header .top .login
+{
+    float: right;
+    height: 40px;
+    line-height: 40px;
+}
+.header .top .topnav a,
+.header .top .login a
+{
+    display: inline-block;
+    margin: 0 5px;
+    height: 40px;
+    color: #b0b0b0;
+}
+.header .top .topnav a:hover,
+.header .top .login a:hover
+{
+    color: #ffffff;
+}
+.header .top .topcart
+{
+    float: right;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #424242;
+    text-align: center;
+    margin-left: 20px;
+    color: #b0b0b0;
+}
+.header .top .topnav a.download-app
+{
+    position: relative;
+}
+.header .top .topnav a.download-app span
+{
+    position: absolute;
+    display: none;
+    top: 40px;
+    left: -60%;
+    width: 120px;
+    height: 145px;
+    background-color: #ffffff;
+    border: #d6d6d6 solid 1px;
+    text-align: center;
+    color: #333333;
+    font-size: 1.2em;
+
+}
+.header .top .topnav a.download-app span img
+{
+    width: 90px;
+    height: 90px;
+    margin: 15px 15px 0;
+}
+.header .top .topnav a.download-app:hover span
+{
+    display: block;
+}
+.header .top .topnav a.download-app span::before
+{
+    position: absolute;
+    top: -21px;
+    left: 40%;
+    content: '';
+    border: rgba(51, 51, 51, 0) solid 10px;
+    border-bottom: #ffffff solid 10px;
+} 

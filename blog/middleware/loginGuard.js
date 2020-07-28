@@ -5,6 +5,7 @@ const guard = (req, res, next) => {
     // 如果用户不是登录的　将请求重定向到登录页面
     // req.session.username 不存在，就是没有登录的
 
+    // 访问退出地址 将请求放行
     if (req.url == '/logout') {
         next();
     } else if (req.url != '/login' && !req.session.username) {
